@@ -1,0 +1,27 @@
+
+[1mFrom:[0m /home/ana/theodinproject/Mastermind/main.rb:88 CodeMaker#play:
+
+     [1;34m83[0m: [32mdef[0m [1;34mplay[0m
+     [1;34m84[0m:   won = [1;36mfalse[0m
+     [1;34m85[0m:   @combinations = generate_combinations
+     [1;34m86[0m:   binding.pry
+     [1;34m87[0m:   puts [31m[1;31m"[0m[31mComputer's guess is #{@computer_guess.join.to_i}[0m[31m.[1;31m"[0m[31m[0m
+ =>  [1;34m88[0m:   @guess_to_check = @computer_guess.clone
+     [1;34m89[0m:   @clues = check_guess(@secret_code, @guess_to_check)
+     [1;34m90[0m:   @combinations_filter = @combinations.filter [32mdo[0m |combination|
+     [1;34m91[0m:     compare_arrays(combination, @clues)
+     [1;34m92[0m:   [32mend[0m
+     [1;34m93[0m:   @combinations.delete(@computer_guess)
+     [1;34m94[0m:   binding.pry
+     [1;34m95[0m:   [32mwhile[0m won == [1;36mfalse[0m && @round_counter < [1;34m13[0m
+     [1;34m96[0m:     @computer_guess = find_best_guess
+     [1;34m97[0m:     puts [31m[1;31m"[0m[31mComputer's guess is #{@computer_guess.join.to_i}[0m[31m[1;31m"[0m[31m[0m
+     [1;34m98[0m:     @guess_to_check = @computer_guess.clone
+     [1;34m99[0m:     check_guess(@secret_code, @guess_to_check)
+    [1;34m100[0m:     @combinations.delete(@computer_guess)
+    [1;34m101[0m:     @round_counter += [1;34m1[0m
+    [1;34m102[0m:   [32mend[0m
+    [1;34m103[0m:   puts [31m[1;31m'[0m[31mThe computer lost. You won![1;31m'[0m[31m[0m
+    [1;34m104[0m:   game_won
+    [1;34m105[0m: [32mend[0m
+
