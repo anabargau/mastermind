@@ -107,11 +107,10 @@ class CodemakerGame
       i = i.to_s
       combinations.push(i) unless i.include?('7') || i.include?('8') || i.include?('9') || i.include?('0')
     end
-    combinations = combinations.map do |combination|
+    combinations.map do |combination|
       combination = combination.split('')
       combination.map(&:to_i)
     end
-    combinations
   end
 
   def find_clues(secret_code, guess)
@@ -160,13 +159,11 @@ class CodemakerGame
       if max_value < best_score
         best_score = max_value
         best_guess = guess
-      elsif max_value == best_score 
+      elsif max_value == best_score
         if @combinations_filter.include?(guess)
           if @combinations_filter.include?(best_guess)
-            if guess.join.to_i < best_guess.join.to_i
-              best_guess = guess
-            end
-          else 
+            best_guess = guess if guess.join.to_i < best_guess.join.to_i
+          else
             best_guess = guess
           end
         end
@@ -207,13 +204,10 @@ class CodemakerGame
     @all_clues = {}
     0.upto(4) do |i|
       0.upto(4) do |j|
-        if i+j <= 4 
-          @all_clues["#{i},#{j}"] = 0
-        end
+        @all_clues["#{i},#{j}"] = 0 if i + j <= 4
       end
     end
   end
-
 end
 
 class HumanPlayer
@@ -226,7 +220,7 @@ class HumanPlayer
   end
 end
 
-class Utils 
+class Utils
   def self.generate_random_code
     [1, 2, 3, 4, 5, 6].sample(4)
   end
