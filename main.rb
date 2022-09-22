@@ -1,5 +1,3 @@
-require 'pry-byebug'
-
 class CodebreakerGame
   def initialize
     @human = HumanPlayer.new
